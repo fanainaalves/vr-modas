@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Modas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <section class="header">
+        <div class="topoEsq">
+            <h3 class="header1">VRmodas </h3>
+            <input class="header1" type="text" placeholder="O que você procura?">
+            <img src="icons/lupa.svg" alt="" class="header1" id="lupa">
+        </div>
+        <div class="topoDir">
+            <img src="icons/ticket.svg" alt="" class="">
+            <img onclick="trocarImg()" src="icons/coracao.svg" alt="" class="" id="coracao">
+            <img src="icons/carrinho.svg" alt="" id="iconeCarrinho" class=""><span class="cart-total-container" style="color: red;">0</span>
+            <img src="img/perfil.jpg" alt="" style="width: 40px;" class="dropdown-toggle" data-bs-toggle="dropdown"
+                id="perfil">
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Ver perfil</a>
+                <a href="#" class="dropdown-item">Alterar senha</a>
+                <hr class="dropdown-divider">
+                <a href="#" class="dropdown-item">Logout <img src="icons/logout.svg" alt=""
+                        style="width: 35px; height: 35px;"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER -->
+
+    <div id="carouselControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/carrocel-1.png" alt="Primeiro Slide" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/carrocel-2.png" alt="Segundo Slide" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/carrocel-3.png" alt="Terceiro Slide" class="d-block w-100">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
+    </div>
+
+    <!-- PRODUTOS -->
+    <div class="produtosAvenda">
+        <h2>Produtos</h2>
+        <div class="produtos">
+            <div id="produto" class="produto1">
+                <img src="img/terno.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
+                <p class="descricao cart-product-title">Terno Social Preto</p>
+                <button class="btnTerno" id="botaoProduto">Adicionar ao Carrinho!</button>
+            </div>
+            <div id="produto">
+                <img src="img/calca.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
+                <p class="descricao cart-product-title">Calça Social Masculina</p>
+                <button class="btnCalca" id="botaoProduto">Adicionar ao Carrinho!</button>
+            </div>
+            <div id="produto">
+                <img src="img/sapato.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
+                <p class="descricao cart-product-title">Sapato Social Preto</p>
+                <button class="btnSapato" id="botaoProduto">Adicionar ao Carrinho!</button>
+            </div>
+            <div id="produto">
+                <img src="img/relogio.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
+                <p class="descricao cart-product-title">Relógio</p>
+                <button class="btnRelogio" id="botaoProduto">Adicionar ao Carrinho!</button>
+            </div>
+        </div>
+        <div class="botoesGuias text-primary">
+            <a class="botoes"><<</a>
+            <a class="botoes">1</a>
+            <a class="botoes">2</a>
+            <a class="botoes">3</a>
+            <a class="botoes">>></a>
+        </div>
+    </div>
+
+    <!-- CARRINHO -->
+    <div class="carrinho">
+        <h2>Carrinho:</h2>
+        <!-- <div class="list-group fundo-de-tela" id="linha-itens"> 
+
+            <div class="list-group-item w-100 h-25 p-2" id="terno">
+                <img src="img/terno.jpg" alt="" class="miniatura">
+                <p class="texto-prod">Terno Social Preto | Quantidade: </p>
+                <button class="addProd">+</button>
+                <input type="number" value="0" min="0" class="product-qtd-input">
+                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
+            </div>
+            
+            <div class="list-group-item w-100 h-25 p-2" id="calca">
+                <img src="img/calca.jpg" alt="" class="miniatura">
+                <p class="texto-prod">Calça Social Masculina | Quantidade: </p>
+                <button class="addProd">+</button>
+                <input type="number" value="0" min="0" class="product-qtd-input">
+                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
+            </div>
+            
+            <div class="list-group-item w-100 h-25 p-2" id="sapato">
+                <img src="img/sapato.jpg" alt="" class="miniatura">
+                <p class="texto-prod">Sapato Social Preto | Quantidade: </p>
+                <button class="addProd">+</button>
+                <input type="number" value="0" min="0" class="product-qtd-input">
+                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
+            </div>
+
+            <div class="list-group-item w-100 h-25 p-2" id="relogio">
+                <img src="img/relogio.jpg" alt="" class="miniatura">
+                <p class="texto-prod">Terno Social Preto | Quantidade: </p>
+                <button class="addProd">+</button>
+                <input type="number" value="0" min="0" class="product-qtd-input">
+                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
+            </div> 
+            
+        </div> -->
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="" id="formulario">
+        <h2>Pré-cadastro:</h2>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="inputName">Primeiro nome</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Segundo nome</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="">E-mail</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
+                        </div>
+                        <input type="email" class="form-control" name="email" id="">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputCity">Cidade</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEstado">Estado</label>
+                    <select class="form-control" id="inputEstado">
+                        <option selected>Escolha...</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espirito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão</option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará</option>
+                        <option>Paraíba</option>
+                        <option>Paraná</option>
+                        <option>Pernambuco</option>
+                        <option>Piauí</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia</option>
+                        <option>Roraima</option>
+                        <option>Santa Catarina</option>
+                        <option>São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputCep">CEP</label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="">
+                    <label for="" class="form-check-label">Aceito os termos e condições</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="titulo">
+            <div class="">Atendimento:</div>
+            <div class="" id="conteudo">Conteúdo:</div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="rodape">
+            <div class="p1">
+                <ul>
+                    <li>Fale Conosco</li>
+                    <li>Meios De Pagamento e De Frete</li>
+                    <li>Política De Privacidade</li>
+                    <li>Política De Trocas e Devoluções</li>
+                    <li>Quem Somos</li>
+                </ul>
+            </div>
+            <div class="p2">
+                <ul>
+                    <li>Telefone: 4002-8922</li>
+                    <li>WhatsApp: 11 99229-1289</li>
+                    <li>Seg. a Sexta 8:00H as 18:00H</li>
+                    <li>Endereço: Rua dos bobos, n° 0 - SP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <br>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
