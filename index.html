@@ -14,7 +14,7 @@
 <body>
 
     <!-- CABEÇALHO -->
-    <section class="header">
+    <section class="header ">
         <div class="topoEsq">
             <h3 class="header1">VRmodas </h3>
             <input class="header1" type="text" placeholder="O que você procura?">
@@ -23,7 +23,7 @@
         <div class="topoDir">
             <img src="icons/ticket.svg" alt="" class="">
             <img onclick="trocarImg()" src="icons/coracao.svg" alt="" class="" id="coracao">
-            <img src="icons/carrinho.svg" alt="" id="iconeCarrinho" class=""><span class="cart-total-container" style="color: red;">0</span>
+            <img src="icons/carrinho.svg" alt="" id="iconeCarrinho" class=""><span class="totalCarrinho" id="valorTotal" style="color: red;">0</span>
             <img src="img/perfil.jpg" alt="" style="width: 40px;" class="dropdown-toggle" data-bs-toggle="dropdown"
                 id="perfil">
             <div class="dropdown-menu">
@@ -64,24 +64,24 @@
     <div class="produtosAvenda">
         <h2>Produtos</h2>
         <div class="produtos">
-            <div id="produto" class="produto1">
+            <div id="produto" class="">
                 <img src="img/terno.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
-                <p class="descricao cart-product-title">Terno Social Preto</p>
+                <p class="descricao ">Terno Social Preto</p>
                 <button class="btnTerno" id="botaoProduto">Adicionar ao Carrinho!</button>
             </div>
             <div id="produto">
                 <img src="img/calca.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
-                <p class="descricao cart-product-title">Calça Social Masculina</p>
+                <p class="descricao">Calça Social Masculina</p>
                 <button class="btnCalca" id="botaoProduto">Adicionar ao Carrinho!</button>
             </div>
             <div id="produto">
                 <img src="img/sapato.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
-                <p class="descricao cart-product-title">Sapato Social Preto</p>
+                <p class="descricao">Sapato Social Preto</p>
                 <button class="btnSapato" id="botaoProduto">Adicionar ao Carrinho!</button>
             </div>
             <div id="produto">
                 <img src="img/relogio.jpg" class="product-image" alt="" style="height: 300px; width: 198px; border-radius: 8px 8px 0px 0px;">
-                <p class="descricao cart-product-title">Relógio</p>
+                <p class="descricao">Relógio</p>
                 <button class="btnRelogio" id="botaoProduto">Adicionar ao Carrinho!</button>
             </div>
         </div>
@@ -97,41 +97,8 @@
     <!-- CARRINHO -->
     <div class="carrinho">
         <h2>Carrinho:</h2>
-        <!-- <div class="list-group fundo-de-tela" id="linha-itens"> 
-
-            <div class="list-group-item w-100 h-25 p-2" id="terno">
-                <img src="img/terno.jpg" alt="" class="miniatura">
-                <p class="texto-prod">Terno Social Preto | Quantidade: </p>
-                <button class="addProd">+</button>
-                <input type="number" value="0" min="0" class="product-qtd-input">
-                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
-            </div>
-            
-            <div class="list-group-item w-100 h-25 p-2" id="calca">
-                <img src="img/calca.jpg" alt="" class="miniatura">
-                <p class="texto-prod">Calça Social Masculina | Quantidade: </p>
-                <button class="addProd">+</button>
-                <input type="number" value="0" min="0" class="product-qtd-input">
-                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
-            </div>
-            
-            <div class="list-group-item w-100 h-25 p-2" id="sapato">
-                <img src="img/sapato.jpg" alt="" class="miniatura">
-                <p class="texto-prod">Sapato Social Preto | Quantidade: </p>
-                <button class="addProd">+</button>
-                <input type="number" value="0" min="0" class="product-qtd-input">
-                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
-            </div>
-
-            <div class="list-group-item w-100 h-25 p-2" id="relogio">
-                <img src="img/relogio.jpg" alt="" class="miniatura">
-                <p class="texto-prod">Terno Social Preto | Quantidade: </p>
-                <button class="addProd">+</button>
-                <input type="number" value="0" min="0" class="product-qtd-input">
-                <button class="lixeira" id="removerProd"><img src="icons/deletar.svg" class="lixeira" alt="">Excluir item</button>
-            </div> 
-            
-        </div> -->
+        <div class="addProduto carrinho_produtos fundo-de-tela">
+        </div>
     </div>
 
     <!-- FORMULARIO -->
@@ -141,11 +108,11 @@
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="inputName">Primeiro nome</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Segundo nome</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">E-mail</label>
@@ -153,18 +120,18 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">@</div>
                         </div>
-                        <input type="email" class="form-control" name="email" id="">
+                        <input type="email" class="form-control" name="email" id="" required>
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputCity">Cidade</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputEstado">Estado</label>
-                    <select class="form-control" id="inputEstado">
+                    <select class="form-control" id="inputEstado" required>
                         <option selected>Escolha...</option>
                         <option>Acre</option>
                         <option>Alagoas</option>
@@ -197,16 +164,16 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputCep">CEP</label>
-                    <input type="number" class="form-control">
+                    <input type="number" maxlength="8"  class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="">
+                    <input type="checkbox" class="form-check-input" id="" required>
                     <label for="" class="form-check-label">Aceito os termos e condições</label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" onclick="alert('Formulario enviado com sucesso!')">Enviar</button>
         </form>
     </div>
 
